@@ -6,6 +6,7 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
+    private Double startTime; // allows null value
 
     public Employee(String employeeId, String name, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
@@ -13,6 +14,28 @@ public class Employee {
         this.department = department;
         this.payRate = payRate;
         this.hoursWorked = hoursWorked;
+        this.startTime = null;
+    }
+
+    public void punchIn(double time) {
+        startTime = time;
+    }
+
+    public void punchOut(double time) {
+        if (startTime == null) {
+            System.out.println("Error: Employee must punch in before punching out.");
+            return;
+        }
+
+        if (time < startTime) {
+            System.out.println("Error: Punch out time cannot be earlier than punch in time.");
+            return;
+        }
+
+        double shiftHours = time - startTime;
+        hoursWorked += shiftHours;
+        startTime = null; // reset for next shift
+
     }
 
     public double getTotalPay() {
