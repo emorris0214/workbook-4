@@ -37,5 +37,48 @@ public class APP {
         System.out.println(emp.getName());
         System.out.println("Total hours worked: " + emp.getHoursWorked()); // Should be 8.5
         System.out.println("Total pay: $" + emp.getTotalPay());
+
+        System.out.println("\n---------------------------");
+
+        // === Test Hotel (Constructor 1) ===
+        Hotel hotel1 = new Hotel("Ocean View", 5, 10);
+        System.out.println("Hotel Name: " + hotel1.getName());
+        System.out.println("Total Suites: " + hotel1.getNumberOfSuites());
+        System.out.println("Total Basic Rooms: " + hotel1.getNumberOfRooms());
+        System.out.println("Available Suites: " + hotel1.getAvailableSuites());
+        System.out.println("Available Basic Rooms: " + hotel1.getAvailableBasicRooms());
+        System.out.println("Suite Available? " + hotel1.isSuiteAvailable());
+        System.out.println("Basic Room Available? " + hotel1.isBasicRoomAvailable());
+
+        System.out.println("\nBooking 2 suites and 3 basic rooms...");
+        boolean suiteBooked = hotel1.bookRoom(2, true);
+        boolean roomBooked = hotel1.bookRoom(3, false);
+
+        System.out.println("Suite Booking Successful? " + suiteBooked);
+        System.out.println("Basic Room Booking Successful? " + roomBooked);
+        System.out.println("Booked Suites: " + hotel1.getBookedSuites());
+        System.out.println("Booked Basic Rooms: " + hotel1.getBookedBasicRooms());
+        System.out.println("Available Suites Now: " + hotel1.getAvailableSuites());
+        System.out.println("Available Basic Rooms Now: " + hotel1.getAvailableBasicRooms());
+        System.out.println("Suite Available? " + hotel1.isSuiteAvailable());
+        System.out.println("Basic Room Available? " + hotel1.isBasicRoomAvailable());
+
+        System.out.println("\n---------------------------");
+
+        // === Test Hotel (Constructor 2) ===
+        Hotel hotel2 = new Hotel("Mori's", 4, 6, 2, 4);
+        System.out.println("Hotel Name: " + hotel2.getName());
+        System.out.println("Total Suites: " + hotel2.getNumberOfSuites());
+        System.out.println("Total Basic Rooms: " + hotel2.getNumberOfRooms());
+        System.out.println("Booked Suites: " + hotel2.getBookedSuites());
+        System.out.println("Booked Basic Rooms: " + hotel2.getBookedBasicRooms());
+        System.out.println("Available Suites: " + hotel2.getAvailableSuites());
+        System.out.println("Available Basic Rooms: " + hotel2.getAvailableBasicRooms());
+        System.out.println("Suite Available? " + hotel2.isSuiteAvailable());
+        System.out.println("Basic Room Available? " + hotel2.isBasicRoomAvailable());
+
+        System.out.println("\nAttempting to book 3 more basic rooms...");
+        boolean roomBooked2 = hotel2.bookRoom(3, false); // Should fail (only 2 available)
+        System.out.println("Booking Successful? " + roomBooked2);
     }
 }

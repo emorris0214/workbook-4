@@ -1,4 +1,5 @@
 package com.pluralsight;
+import java.time.LocalDateTime;
 
 public class Employee {
     private String employeeId;
@@ -36,6 +37,24 @@ public class Employee {
         hoursWorked += shiftHours;
         startTime = null; // reset for next shift
 
+    }
+
+    // Overloaded Methods (In & Out)
+    public void punchIn() {
+        double time = getCurrentDecimalTime();
+        punchIn(time);
+    }
+
+    public void punchOut() {
+        double time = getCurrentDecimalTime();
+        punchOut(time);
+    }
+
+    private double getCurrentDecimalTime() {
+        LocalDateTime now = LocalDateTime.now();
+        int hour = now.getHour();
+        int minute = now.getMinute();
+        return hour + (minute / 60.0);
     }
 
     public double getTotalPay() {
