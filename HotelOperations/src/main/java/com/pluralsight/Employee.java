@@ -49,4 +49,12 @@ public class Employee {
     public double getOvertimeHours() {
         return Math.max(0, hoursWorked - 40);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getHoursWorked() {
+        return hoursWorked;
+    }
 }
