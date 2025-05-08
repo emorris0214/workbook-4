@@ -3,9 +3,10 @@ package com.pluralsight;
 public class APP {
     public static void main(String[] args) {
         // === Test Room ===
-        Room room1 = new Room(2, 150.00, false, false);
+        Room room1 = new Room(2, 3, 150.00);
         System.out.println("Room available? " + room1.isAvailable()); // true
-        if (room1.checkIn()) {
+        if (room1.isAvailable()) {
+            room1.checkIn();
             System.out.println("Checked into room.");
         } else {
             System.out.println("Room not available.");

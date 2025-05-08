@@ -20,7 +20,7 @@ public class Reservation {
     }
 
     public double getPrice() {
-        double basePrice;
+        double basePrice; // inferred 0
 
         if (roomType.equalsIgnoreCase("king")) {
             basePrice = 139.00;
